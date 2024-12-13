@@ -1,0 +1,20 @@
+int Maximum_Product(int arr[], int n)
+{
+	int maxProduct = INT_MIN; // Initialize result 
+	int currProduct; // product of current pair 
+
+	// loop  until they meet with each other 
+	int left = 0, right = n - 1;
+	while (left < right)
+	{
+		maxProduct = max(maxProduct, min(arr[left], arr[right])*(right- left) );
+		if (arr[left] < arr[right]) {
+			left++;
+		}
+		else { 
+			right--; 
+		}
+	}
+
+	return maxProduct;
+}
